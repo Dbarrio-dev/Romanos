@@ -1,4 +1,5 @@
 import unittest
+
 from Romanos import *
 
 class RomanosTest(unittest.TestCase):
@@ -14,3 +15,18 @@ class RomanosTest(unittest.TestCase):
 
         self.assertRaises(ValueError, romano_a_entero, 'z')
         self.assertRaises(ValueError, romano_a_entero, '23')
+
+    def test_MMM(self):
+        self.assertEqual(romano_a_entero("MMM"),3000)
+
+    def test_MMMM(self):
+        self.assertRaises(OverflowError, romano_a_entero, 'MMMM')
+
+#CC 200  
+#III 3
+#XX20
+#W Overflowerror('Demasiados simbolos de tipo V') 
+
+if __name__ == '__main__':
+    unittest.main()
+
